@@ -18,5 +18,17 @@ after_sucess:
   # Push images to docker hub
   - docker push ktatarchuk/udemy-docker-kube-fib-client
   - docker push ktatarchuk/udemy-docker-kube-fib-nginx
-  - docker push ktatarchuk/udemy-docker-kube-fib-server 
-  - docker push ktatarchuk/udemy-docker-kube-fib-worker 
+  - docker push ktatarchuk/udemy-docker-kube-fib-server
+  - docker push ktatarchuk/udemy-docker-kube-fib-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "udemy-docker-kube-fib"
+  env: "Udemydockerkubefib-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-776251884493"
+  bucket_path: "udemy-docker-kube-fib"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
