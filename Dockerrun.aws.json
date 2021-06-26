@@ -5,6 +5,7 @@
             "name": "client",
             "image": "ktatarchuk/udemy-docker-kube-fib-client",
             "hostname": "client",
+            "memory": 128,
             "essential": false
         },
         {
@@ -17,12 +18,12 @@
             "name": "worker",
             "image": "ktatarchuk/udemy-docker-kube-fib-worker",
             "hostname": "worker",
+            "memory": 128,
             "essential": false
         },
         {
             "name": "nginx",
             "image": "ktatarchuk/udemy-docker-kube-fib-nginx",
-            "essential": true,
             "portMappings": [
                 {
                     "hostPort": 80,
@@ -32,7 +33,9 @@
             "links": [
                 "client",
                 "server"
-            ]
+            ],
+            "memory": 128,
+            "essential": true
         }
     ]
 }
