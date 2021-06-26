@@ -12,6 +12,7 @@
             "name": "server",
             "image": "ktatarchuk/udemy-docker-kube-fib-server",
             "hostname": "api",
+            "memory": 128,
             "essential": false
         },
         {
